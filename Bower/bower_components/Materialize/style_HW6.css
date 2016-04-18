@@ -1,0 +1,34 @@
+.contact h5, .contact h6 {
+  margin-bottom: 15px;
+  text-align: center;
+  text-transform: uppercase;  
+}
+
+.contact h6 {
+  margin-bottom: 45px;
+}
+
+.contact hr {
+  margin-bottom: 45px;
+  width: 40px;
+}
+
+.contact .col {
+  padding-right: 5%;
+  padding-bottom: 10%;
+}
+
+
+.container .col h6 {
+  text-align: left;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.container .col p {
+  margin-bottom:  30px;
+}
+
+.container .col .material-icons {
+  vertical-align: text-bottom;
+}

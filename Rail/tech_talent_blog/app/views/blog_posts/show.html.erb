@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+  <div class="card green lighten-2">
+    <div class="card-content white-text">
+      <span class="card-title white-text">
+        <%= @blog_post.title %>
+      </span>
+      <i>by <%=@blog_post.author%></i>
+      <p>
+        <%= @blog_post.blog_entry %>
+      </p>
+    </div>
+    <div class="card-action">
+      <%= link_to 'Edit', edit_blog_post_path(@blog_post) %>
+    </div>
+  </div>
+  
+   <div class="card">
+    <div class="card-content black-text">
+      <span class="card-title black-text">
+        Leave a Comment!
+      </span>
+      <p>
+        <%= render 'comments/form'%>
+      </p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title black-text">
+        Comments
+      </span>
+      <% @blog_post.comments.each do |comment| %>
+        <p><b><%=comment.author%></b> said:</p>
+        <p><%= comment.comment_entry%></p>
+      <%end%>
+    </div>
+  </div>

@@ -1,0 +1,189 @@
+<html>
+  <head>
+    <!-- This is the stuff you should start with your html-->
+    <title>Materialize CSS Framework Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link type="text/css" rel="stylesheet" href="dist/css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  </head>
+<body>
+
+  <div class="intro deep-orange lighten-2 z-depth-1">
+    <!-- base color is deep orange, lighten-22 will make lighter the color for 2 step to create constrast 
+    (and as u will image, there is a darken code as well) -->
+    <h1 class="grey-text text-lighten-5">Lin Yang</h1>
+    <h5 class="grey lighten-4 grey-text text-darken-1">Full Stack Web Developer</h5>
+  </div>
+
+  <div class="container about">
+    <h5>About me</h5>
+    <h6>let me introduce my self</h6>
+    <hr>
+    <div class="row">
+      <div class="col s12 m4 l4">
+        <h6>Story</h6>
+        <p>Grow up in someplace</p>
+      </div>
+
+      <div class="col s12 m4 l4">
+        <h6>Profile</h6>
+        <div class="card blue-grey darken-1">
+          <div class="card-content white-text">
+            <img src="https://s-media-cache-ak0.pinimg.com/736x/dc/ef/3a/dcef3abedf0e0761203aaeb85886a6f3.jpg" width="64" height="64">
+            <p> It is what it is.</p>
+          </div>
+          <div class="card-action">
+            <a href="http://www.linkedin.com/in/frodobaggins">Linked In</a>
+            <a href="http://www.facebook.com/frodobaggins">Facebook</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s12 m4 l4">
+        <h6>current jobs</h6>
+
+        <ul class="collapsible">
+          <li class="active">
+            <div class="collapsible-header">
+              <i class="mdi-av-web"></i>
+              Designer
+            </div>
+            <div class="collapsible-body">
+              <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+          </li>
+
+          <li>
+            <div class="collapsible-header">
+              <i class="mdi-editor-format-align-justify"></i>
+              Developer
+            </div>
+            <div class="collapsible-body">
+              <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+          </li>
+
+          <li>
+            <div class="collapsible-header">
+              <i class="mdi-av-play-shopping-bag"></i>
+              Video Editor
+            </div>
+            <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+          </li>
+
+          <li>
+            <div class="collapsible-header">
+              <i class="mdi-editor-insert-comment"></i>
+              Support Asst.
+            </div>
+            <div class="collapsible-body">
+              <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container portfolio">
+  <h5>portfolio</h5>
+  <h6>MY LATEST PROJECTS</h6>
+  <hr>
+    <div class="row">
+      <div class="col s12 m12 l12 portfolio-holder">
+        <img class="materialboxed" 
+             src="http://placehold.it/428x285">
+             <!-- placehold service - it will automate generate image for you-->
+             <!-- it will be usefull when u showing the design the customer -->
+        <img class="materialboxed" 
+             src="http://placehold.it/428x285">
+        <img class="materialboxed" 
+             src="http://placehold.it/428x285">
+        <img class="materialboxed" 
+             src="http://placehold.it/428x285">
+        <img class="materialboxed" 
+             src="http://placehold.it/428x285">
+        <img class="materialboxed" 
+             src="http://placehold.it/428x285">
+      </div>
+    </div>
+  </div>
+
+  <div class = "container contact"> 
+    <h5>Contact</h5>
+    <h6>Get in touch with me</h6>
+    <hr/>
+
+    <div class="row">
+
+      <form class="col m6 s12">
+      
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="first_name" type="text" class="validate">
+            <label for="first_name">First Name</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="last_name" type="text" class="validate">
+            <label for="last_name">Last Name</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="email" type="email" class="validate">
+            <label for="email">Email</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="password" type="password" class="validate">
+            <label for="password">Password</label>
+          </div>
+        </div>
+
+        <a class="waves-effect waves-light btn">Submit<i class="material-icons right">send</i></a>
+
+      </form>
+
+      <div class = "col m6 s12">
+        <h6><i class="material-icons">home</i>Address</h6>
+        <p>Nr.6, 21 Awesome Street, London, UK</p>
+        <h6><i class="material-icons">phone_iphone</i>Phone number</h6>
+        <p>+91 9912776151</p>
+        <h6><i class="material-icons">web</i>Website</h6>
+        <p>qnimate.com</p>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- jQuery is required by Materialize to function -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="dist/js/materialize.min.js"></script>
+  <script type="text/javascript"></script>
+  <script>
+      $(document).ready(function(){
+        $('.collapsible').collapsible();
+      });
+      $(document).ready(function(){               
+      $('.materialboxed').materialbox();
+      });
+      $(document).ready(function(){
+        $('.materialboxed').materialbox();
+      });
+  </script>
+  
+
+  
+
+</body>
+</html>
