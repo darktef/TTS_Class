@@ -19,10 +19,9 @@
     <b><%= f.label :comment_entry %></b><br>
     <%= f.text_area :comment_entry %>
   </div>
-  <div class="field cant-see-me">
-    <%= f.number_field :blog_post_id, value: @blog_post.id %><br>
-  </div>
-  <div class="actions">
+    <%= f.hidden_field :blog_post_id, value: @blog_post.id %><br>
+  <div class="waves-effect waves-light btn">
     <%= f.submit %>
+    <i class="material-icons right">comment</i>
   </div>
 <% end %>

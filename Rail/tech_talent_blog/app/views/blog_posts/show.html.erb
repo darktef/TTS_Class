@@ -34,6 +34,8 @@
       <% @blog_post.comments.each do |comment| %>
         <p><b><%=comment.author%></b> said:</p>
         <p><%= comment.comment_entry%></p>
+        <p> on <%= comment.updated_at.strftime("%H:%M:%S  %b %d, %Y") %></p>
+        <br>
       <%end%>
     </div>
   </div>
