@@ -11,7 +11,7 @@
 		<ul class="row recent-post">
 			<% @recent_posts.each do |rp|%>
 				<li class="col s12 black-text">
-					<%= link_to rp.title, blog_post_path(rp.id) %> created by <i><%=rp.author%></i> at:<%=rp.created_at.strftime("%m/%d/%Y %H:%M:%S")%>
+					<%= link_to rp.title, blog_post_path(rp.id) %> created by <i><%=rp.user.email%></i> at:<%=rp.created_at.strftime("%m/%d/%Y %H:%M:%S")%>
 				</li>
 			<% end %>
 		</ul>

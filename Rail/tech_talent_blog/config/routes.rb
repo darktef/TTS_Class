@@ -1,10 +1,10 @@
-Rails.application.routes.draw do
+ Rails.application.routes.draw do
 
+  devise_for :users
   resources :comments
   resources :blog_posts
 
   root "welcome#index"
-  get '/blog_posts/:id/edit' => "blog_posts#edit"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

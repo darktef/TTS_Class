@@ -1,44 +1,44 @@
 <p id="notice"><%= notice %></p>
-<div class="container">
-  <div class="card green lighten-2">
-    <div class="card-content white-text">
-      <span class="card-title white-text">
-        <%= @blog_post.title %>
-      </span>
-      <b>by <%=@blog_post.author%></b><span class="posted_at"> posted at: <%= @blog_post.created_at.strftime("%b %d %Y %I:%M%p") %>
-      <p>
-        <%= @blog_post.blog_entry %>
-      </p>
-    </div>
-    <div class="card-action">
-      <%= link_to 'Edit', edit_blog_post_path(@blog_post) %>
-    </div>
-  </div>
-  
-   <div class="card">
-    <div class="card-content black-text">
-      <span class="card-title black-text">
-        Leave a Comment!
-      </span>
-      <p>
-        <%= render 'comments/form'%>
-      </p>
-    </div>
-  </div>
 
-  <div class="card">
-    <div class="card-content">
-      <span class="card-title black-text">
-        Comments
-      </span>
-      <% @blog_post.comments.each do |comment| %>
-        <p><b><%=comment.author%></b> said:</p>
-        <p>"<%= comment.comment_entry%>"</p>
-        <p> on <%= comment.created_at.strftime("%m/%d/%Y %H:%M:%S") %></p>
-        <br>
-      <%end%>
-    </div>
+<div class="card green lighten-2">
+  <div class="card-content white-text">
+    <span class="card-title white-text">
+      <%= @blog_post.title %>
+    </span>
+    <b>by <%=@blog_post.user.email%></b><span class="posted_at"> posted at: <%= @blog_post.created_at.strftime("%b %d %Y %I:%M%p") %>
+    <p>
+      <%= @blog_post.blog_entry %>
+    </p>
   </div>
-  <%= link_to 'Back', blog_posts_path %>
+  <div class="card-action">
+    <%= link_to 'Edit', edit_blog_post_path(@blog_post) %>
+  </div>
 </div>
+
+ <div class="card">
+  <div class="card-content black-text">
+    <span class="card-title black-text">
+      Leave a Comment!
+    </span>
+    <p>
+      <%= render 'comments/form'%>
+    </p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-content">
+    <span class="card-title black-text">
+      Comments
+    </span>
+    <% @blog_post.comments.each do |comment| %>
+      <p><b><%= comment.user.email %></b> said:</p>
+      <p>"<%= comment.comment_entry   %>"</p>
+      <p> on <%= comment.created_at.strftime("%m/%d/%Y %H:%M:%S") %></p>
+      <br>
+    <%end%>
+  </div>
+</div>
+<%= link_to 'Back', blog_posts_path %>
+
 
