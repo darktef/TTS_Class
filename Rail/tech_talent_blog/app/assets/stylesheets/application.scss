@@ -18,6 +18,30 @@ $primary-color: color("blue", "lighten-2") !default;
 @import 'materialize';
 
 body {
+	background-color:#b9f6ca ;
 	padding: 0 20px;
 }
 
+.container {
+	background-color: rgba(255,255,255,0.8);
+	margin-top:75px;
+	padding:25px;
+	border-radius: 20px;
+}
+
+textarea {
+	height:10rem;
+	margin:20px 0;
+}
+
+.flow-text {
+	font-family: Calibri, GillSans;
+}
+
+.flow-text .col {
+	padding:5px;
+}
+
+.blog-entry {
+	text-indent: 1.5em;
+}

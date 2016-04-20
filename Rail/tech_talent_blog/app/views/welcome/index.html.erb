@@ -1,0 +1,14 @@
+
+
+<div class=container>
+	<h1> WELCOME to THE BLOG <i class="material-icons">insert_chart</i></h1>
+	<div class="row">
+		<ul class="row flow-text">
+			<% @recent_posts.each do |rp|%>
+				<li class="col s12 black-text">
+					<h3><%= link_to rp.title, blog_post_path(rp.id) %></h3> created by <i><%=rp.author%></i> at:<%=rp.created_at.strftime("%m/%d/%Y %H:%M:%S")%>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+</div>

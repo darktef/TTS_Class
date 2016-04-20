@@ -1,24 +1,25 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Listing Blog Posts</h1>
+<div class="container">
+  <h1>Listing Blog Posts</h1>
     <div class="row">
       <% @blog_posts.each do |blog_post| %>
         <div class="col s12 m6">
-          <div class="card green lighten-2">
+          <div class="card green lighten-3">
             <div class="card-content white-text">
               <span class="card-title"><%= link_to blog_post.title, blog_post%></span>
               <i>by <%=blog_post.author%></i>
-              <p><%= blog_post.blog_entry[0..250] %></p>
+              <p>posted at: <%= blog_post.created_at.strftime("%m/%d/%Y %I:%M%p") %></p>
+              <p class="blog-entry"><%= blog_post.blog_entry[0..250] %></p>
               <p><%= link_to '[Read More]', blog_post%></p>
             </div>
             <div class="card-action">
-              <%= link_to 'Edit', edit_blog_post_path(blog_post) %>
-              <%= link_to 'Destroy', blog_post, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <button class="waves-effect orange btn"><%= link_to 'Edit', edit_blog_post_path(blog_post) %></button>
+              <button class="waves-effect red btn"><%= button_to "Destroy", blog_post, method: :delete, data: { confirm: 'Are you sure?' } %></button>
             </div>
           </div>
         </div>
       <% end %>
     </div>
-
+</div>
 
 <%= link_to 'New Blog post', new_blog_post_path %>
