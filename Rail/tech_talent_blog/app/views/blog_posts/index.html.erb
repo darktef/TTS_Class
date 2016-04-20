@@ -13,7 +13,7 @@
               <p><%= link_to '[Read More]', blog_post%></p>
             </div>
             <div class="card-action">
-              <button class="waves-effect orange btn"><%= link_to 'Edit', edit_blog_post_path(blog_post) %></button>
+              <button class="waves-effect orange btn"><%= button_to 'Edit', edit_blog_post_path(blog_post) %></button>
               <button class="waves-effect red btn"><%= button_to "Destroy", blog_post, method: :delete, data: { confirm: 'Are you sure?' } %></button>
             </div>
           </div>
