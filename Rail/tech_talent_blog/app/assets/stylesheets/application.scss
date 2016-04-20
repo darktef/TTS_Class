@@ -36,10 +36,14 @@ textarea {
 
 .flow-text {
 	font-family: Calibri, GillSans;
+	line-height: 100%;
+	text-indent: 1.5em;
 }
 
-.flow-text .col {
-	padding:5px;
+.recent-post {
+	font-size: 15px;
+	line-height: 200%;
+	margin:auto;
 }
 
 .blog-entry {

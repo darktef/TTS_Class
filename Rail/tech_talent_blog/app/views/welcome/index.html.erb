@@ -2,11 +2,16 @@
 
 <div class=container>
 	<h1> WELCOME to THE BLOG <i class="material-icons">insert_chart</i></h1>
-	<div class="row">
-		<ul class="row flow-text">
+	<p class="flow-text">
+		She travelling acceptance men unpleasant her especially entreaties law. Law forth but end any arise chief arose. Old her say learn these large. Joy fond many ham high seen this. Few preferred continual sir led incommode neglected. Discovered too old insensible collecting unpleasant but invitation. 
+	</p>
+	<br>
+	<h3>Recent Posts</h3>
+	<div>
+		<ul class="row recent-post">
 			<% @recent_posts.each do |rp|%>
 				<li class="col s12 black-text">
-					<h3><%= link_to rp.title, blog_post_path(rp.id) %></h3> created by <i><%=rp.author%></i> at:<%=rp.created_at.strftime("%m/%d/%Y %H:%M:%S")%>
+					<%= link_to rp.title, blog_post_path(rp.id) %> created by <i><%=rp.author%></i> at:<%=rp.created_at.strftime("%m/%d/%Y %H:%M:%S")%>
 				</li>
 			<% end %>
 		</ul>
