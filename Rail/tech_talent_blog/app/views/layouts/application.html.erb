@@ -6,19 +6,33 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
+
 <body>
 
-  <div class="container">
-    <div class="right">
-    <% if user_signed_in? %>
-     <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary" %> <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
-    <% end %>
+  <nav>
+    <div class="nav-wrapper cyan lighten-3">
+        <img class="left" src="http://www.millsapplefarm.com/images/the-blog-icon/bitmap/black/blog-icon-black-300.png" class="brand-logo"></img>
+        <ul class="right">
+            <% if user_signed_in? %>
+              <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+              <li><%= link_to "Log Out", destroy_user_session_path, method: :delete%></li>
+            <% else %>
+              <li><%= link_to "Sign Up", new_user_registration_path %></li>
+              <li><%= link_to "Log In", new_user_session_path %></li>
+            <% end %>
+            <li><%= link_to 'All Posts', blog_posts_path %></li>
+        </ul>
     </div>
+  </nav>
+
+
+  <div class="container">
+
+
+
+    <%= yield %>
   </div>
-
-
-<%= yield %>
-
 </body>
 </html>

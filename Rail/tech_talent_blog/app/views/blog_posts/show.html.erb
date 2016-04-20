@@ -5,7 +5,7 @@
     <span class="card-title white-text">
       <%= @blog_post.title %>
     </span>
-    <b>by <%=@blog_post.user.email%></b><span class="posted_at"> posted at: <%= @blog_post.created_at.strftime("%b %d %Y %I:%M%p") %>
+    <b>by <%=@blog_post.user.name%></b><span class="posted_at"> posted at: <%= @blog_post.created_at.strftime("%b %d %Y %I:%M%p") %>
     <p>
       <%= @blog_post.blog_entry %>
     </p>
@@ -32,13 +32,13 @@
       Comments
     </span>
     <% @blog_post.comments.each do |comment| %>
-      <p><b><%= comment.user.email %></b> said:</p>
+      <p><b><%= comment.user.name %></b> said:</p>
       <p>"<%= comment.comment_entry   %>"</p>
       <p> on <%= comment.created_at.strftime("%m/%d/%Y %H:%M:%S") %></p>
       <br>
     <%end%>
   </div>
 </div>
-<%= link_to 'Back', blog_posts_path %>
+
 
 

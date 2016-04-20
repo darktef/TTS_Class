@@ -22,11 +22,28 @@ body {
 	padding: 0 20px;
 }
 
+.nav-wrapper {
+	margin-top: 20px;
+}
+
+.nav-wrapper img {
+	max-height:100%;
+}
+
+.nav-wrapper ul {
+	line-height: inherit;
+}
+
 .container {
 	background-color: rgba(255,255,255,0.8);
-	margin-top:75px;
+	margin-top:50px;
 	padding:25px;
 	border-radius: 20px;
+	width: 100%;
+}
+
+.sign {
+	
 }
 
 textarea {
@@ -35,9 +52,7 @@ textarea {
 }
 
 .flow-text {
-	font-family: Calibri, GillSans;
 	line-height: 100%;
-	text-indent: 1.5em;
 }
 
 .recent-post {
@@ -50,7 +65,13 @@ textarea {
 	text-indent: 1.5em;
 }
 
-.sign {
-	margin-top: 10px;
 
+.btn {
+	padding:0.2em;
+	color:cyan lighten-3;
+}
+
+.page-footer {
+	margin-top: 30px;
+	margin-bottom:0;
 }
