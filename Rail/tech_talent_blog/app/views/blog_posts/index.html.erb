@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'New Blog post', new_blog_post_path, class: "right
-  cyan lighten-3 waves-effect btn" %>
+
 
 <h1>All Posts</h1>
 
@@ -11,14 +10,16 @@
         <div class="card green lighten-3">
           <div class="card-content white-text">
             <span class="card-title"><%= link_to blog_post.title, blog_post%></span>
-            <i>by <%= blog_post.user.name %></i>
+            <i>by <%= link_to blog_post.user.name, user_posts_path(blog_post.user)%></i>
             <p>posted at: <%= blog_post.created_at.strftime("%m/%d/%Y %I:%M%p") %></p>
             <p class="blog-entry"><%= blog_post.blog_entry[0..250] %></p>
             <p><%= link_to '[Read More]', blog_post%></p>
           </div>
           <div class="card-action">
+            <% if blog_post.user == current_user%>
             <%= link_to 'Edit', edit_blog_post_path(blog_post), class: "waves-effect orange btn"%>
             <%= link_to "Destroy", blog_post, method: :delete, data: { confirm: 'Are you sure?'}, class: "waves-effect red btn" %>
+            <% end %>
           </div>
         </div>
       </div>
