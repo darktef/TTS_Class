@@ -2,9 +2,9 @@
 <div class="product_list">
 	<% @products.each do |p| %>
 		<ul>
-			<li><%= p.name %></li>
-			<li><%= p.category %></li>
-			<li><%= p.price %></li>
+			<em><li><%=link_to p.name,product_path(p.id) %></li></em>
+			<li><strong>Category: </strong><%= link_to p.category.capitalize, category_path(p.category) %></li>
+			<li><strong>Price: </strong>$<%= p.price %></li>
 		</ul>
 	<% end %>
 </div>
