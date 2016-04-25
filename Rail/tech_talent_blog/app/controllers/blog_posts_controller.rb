@@ -1,5 +1,4 @@
 class BlogPostsController < ApplicationController
-  before_filter :authenticate_user!
   before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
 
   # GET /blog_posts

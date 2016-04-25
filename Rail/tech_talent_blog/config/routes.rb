@@ -1,12 +1,22 @@
  Rails.application.routes.draw do
 
   devise_for :users
-  resources :comments
-  resources :blog_posts
-  get "your_posts" => "blog_posts#your_posts"
-  get "user_posts/:id" => "blog_posts#user_posts", as: :user_posts
-
   root "welcome#index"
+
+  get "user_posts/:id" => "blog_posts#user_posts", as: :user_posts
+  get "blog_posts" => "blog_posts#index", as: :blog_posts
+  get "blog_posts/:id" => "blog_posts#show", as: :blog_post
+
+
+  authenticate :user do
+    resources :comments
+    resources :blog_posts
+    get "your_posts" => "blog_posts#your_posts"
+  end
+
+  
+
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

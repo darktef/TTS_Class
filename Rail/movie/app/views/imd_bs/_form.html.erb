@@ -1,0 +1,29 @@
+<%= form_for(@imdb) do |f| %>
+  <% if @imdb.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@imdb.errors.count, "error") %> prohibited this imdb from being saved:</h2>
+
+      <ul>
+      <% @imdb.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :actor_id %><br>
+    <%= f.number_field :actor_id %>
+  </div>
+  <div class="field">
+    <%= f.label :genre_id %><br>
+    <%= f.number_field :genre_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
