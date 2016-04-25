@@ -1,0 +1,11 @@
+<h1>All Products</h1>
+<div class="product_list">
+	<% @products.each do |p| %>
+		<ul>
+			<li><%= p.name %></li>
+			<li><%= p.category %></li>
+			<li><%= p.price %></li>
+		</ul>
+	<% end %>
+</div>
+
