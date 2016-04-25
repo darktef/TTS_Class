@@ -5,14 +5,15 @@
 				<b><%= link_to blog_post.title, blog_post%></b>
 			</div>
 			<div class="panel-body">
-				<p><span class="posted-at"><%=blog_post.created_at.strftime('%m/%d/%Y at %l:%M%p')%></p>
+				<p><span class="posted-at"><%=blog_post.created_at.strftime('%m/%d/%Y at %l:%M%p')%></span></p>
 				<p><%=blog_post.blog_entry[0..150]%>...[<%=link_to "READ MORE", blog_post%>]</p>
 			</div>
 			<div class="panel-footer">
 				<%#=link_to "Show", blog_post, class: "btn"%>
-				<%=link_to "Edit", edit_blog_post_path(blog_post),class:"waves-effect orange btn"%>
-				<%=link_to "Destroy", blog_post, method: :delete, data: {confirm: "Are you sure?"}, class: "waves-effect red btn"%>
+				<%=link_to "Edit", edit_blog_post_path(blog_post),class:"btn"%>
+				<%=link_to "Destroy", blog_post, method: :delete, data: {confirm: "Are you sure?"}, class: "red btn"%>
 			</div>
+			<hr>
 		</div>
 	</div>
 <%end%>

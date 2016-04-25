@@ -14,36 +14,55 @@
  *= require_self
  */
 @import "materialize/components/color";
-$primary-color: color("blue", "lighten-2") !default;
+$primary-color: color("orange","lighten-1") !default;
+$accent-color: color("purple", "accent-2");
+$secondary-color: color("orange", "darken-2");
 @import 'materialize';
 
 body {
-	background-color:#b9f6ca ;
+	background-color: $primary-color;
 	padding: 0 20px;
 }
 
 .nav-wrapper {
-	margin-top: 20px;
+	background-color: $secondary-color;
+	margin-top:10px;
 }
 
 .nav-wrapper img {
+	max-height: 90%;
+    margin: 3px 5px;
+}
+
+.nav-wrapper h3 {
+	display: inline-block;
+	position:absolute;
+	margin:0;
+	height: 100%;
 	max-height:100%;
+	padding-top:5px;
 }
 
 .nav-wrapper ul {
 	line-height: inherit;
 }
 
+.nav-wrapper a {
+	color:white;
+}
+
+@media only screen and (max-width: 936	px) {
+	.nav-wrapper {
+	    text-align: center;
+	 }}
+
 .container {
 	background-color: rgba(255,255,255,0.8);
 	margin-top:50px;
 	padding:25px;
 	border-radius: 20px;
-	width: 100%;
-}
-
-.sign {
-	
+	max-width: 100%;
+	width:100%;
 }
 
 textarea {
@@ -67,10 +86,15 @@ textarea {
 
 
 .btn {
-	padding:0.3em 0.3em;
+	background-color:$accent-color;
+	color:black;
 }
 
 .page-footer {
 	margin-top: 30px;
 	margin-bottom:0;
+}
+
+label {
+	color:black;
 }

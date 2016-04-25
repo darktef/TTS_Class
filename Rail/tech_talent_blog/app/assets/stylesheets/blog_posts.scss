@@ -3,3 +3,26 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+@import "materialize/components/color";
+$primary-color: color("orange","lighten-1") !default;
+$accent-color: color("purple", "accent-2");
+$secondary-color: color("orange", "darken-2");
+$tertiary-color: color("orange", "lighten-3");
+@import 'materialize';
+
+
+.card-content {
+	background-color:$tertiary-color;
+}
+
+
+.row .pic img {
+	max-height: 100%;
+	max-width: 100%;
+
+}
+
+.post_title {
+	text-align: center;
+}
+

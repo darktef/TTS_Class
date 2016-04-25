@@ -12,17 +12,19 @@
 <body>
 
   <nav>
-    <div class="nav-wrapper cyan lighten-3">
-        <img class="left" src="http://www.millsapplefarm.com/images/the-blog-icon/bitmap/black/blog-icon-black-300.png" class="brand-logo"></img>
-        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <div class="nav-wrapper">
+        <%=image_tag "orange-blog.png"%>
+        <h3>Food</h3>
+        <a href="#" data-activates="mobile-demo" class="center button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-        <%= render 'nav'%>
+          <%= render 'nav'%>
         </ul>
         <ul class="side-nav" id="mobile-demo">
           <%= render 'nav'%>
         </ul>
     </div>
   </nav>
+
 
 
   <div class="container">

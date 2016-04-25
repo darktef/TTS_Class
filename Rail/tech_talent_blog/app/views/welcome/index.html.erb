@@ -1,18 +1,42 @@
+<div class="row">
+	<div class="col s12 m6">
+		<h1 class="flow-text"> Welcome <% if user_signed_in? %><%=current_user.name%><%else%><%= "to Blog App"%><%end%>! <i class="material-icons">insert_chart</i></h1>
+		<p class="flow-text">
+			She travelling acceptance men unpleasant her especially entreaties law. Law forth but end any arise chief arose. Old her say learn these large. Joy fond many ham high seen this. Few preferred continual sir led incommode neglected. Discovered too old insensible collecting unpleasant but invitation. 
+		</p>
+		<br>
+		<h3 class="flow-text">Recent Posts</h3>
+		<div>
+			<ul class="row recent-post">
+				<% @recent_posts.each do |rp|%>
+					<li class="col s12 black-text">
+						<%= link_to rp.title, blog_post_path(rp.id) %> created by <i><%=rp.user.name%></i> at:<%=rp.created_at.strftime("%m/%d/%Y %H:%M:%S")%>
+					</li>
+				<% end %>
 
-<h1 class="flow-text"> Welcome <% if user_signed_in? %><%=current_user.name%><%else%><%= "to Blog App"%><%end%>! <i class="material-icons">insert_chart</i></h1>
-<p class="flow-text">
-	She travelling acceptance men unpleasant her especially entreaties law. Law forth but end any arise chief arose. Old her say learn these large. Joy fond many ham high seen this. Few preferred continual sir led incommode neglected. Discovered too old insensible collecting unpleasant but invitation. 
-</p>
-<br>
-<h3 class="flow-text">Recent Posts</h3>
-<div>
-	<ul class="row recent-post">
-		<% @recent_posts.each do |rp|%>
-			<li class="col s12 black-text">
-				<%= link_to rp.title, blog_post_path(rp.id) %> created by <i><%=rp.user.name%></i> at:<%=rp.created_at.strftime("%m/%d/%Y %H:%M:%S")%>
-			</li>
-		<% end %>
+			</ul>
+		</div>
+	</div>
 
-	</ul>
+	<div class="col s12 m6 pic">
+		<div class="col m6">
+			<%=image_tag "coffee.jpg"%>
+		</div>
+		<div class="col m6">
+			<%=image_tag "cream-puff.jpg" %>
+		</div>
+		<div class="col m6">
+			<%=image_tag "fish-fine-dining.jpg" %>
+		</div>
+		<div class="col m6">
+			<%=image_tag "roast-meat.jpg" %>
+		</div>
+		<div class="col m6">
+			<%=image_tag "pear.jpg" %>
+		</div>
+		<div class="col m6">
+			<%=image_tag "dog-cute" %>
+		</div>
+	</div>
 </div>
 
