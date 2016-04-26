@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  get 'all_products' => "inventory#all_products"
+  root "inventory#all_products"
 
   get 'product/:id' => "inventory#one_product", as: :product
 
   get 'category/:category' => "inventory#by_category", as: :category
+
+  get 'category' => "inventory#all_category"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

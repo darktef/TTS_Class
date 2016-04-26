@@ -8,9 +8,11 @@ class InventoryController < ApplicationController
   end
 
   def by_category
-  	@product=Product.where("category=?",params[:category])	
+  	@product = Product.where("category=?",params[:category])	
   end
 
-
+  def all_category
+  	@product = Product.group("category").count
+  end
 
 end
