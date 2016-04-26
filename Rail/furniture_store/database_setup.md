@@ -36,7 +36,7 @@ p.save
 p = Product.new
 p.name = "Amazon Echo"
 p.price = 179.99
-p.category = "Electronics"
+p.category = "electronics"
 p.save
 
 exit
