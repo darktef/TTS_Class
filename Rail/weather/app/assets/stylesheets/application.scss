@@ -17,3 +17,25 @@
 @import "materialize/components/color";
 $primary-color: color("blue", "lighten-2") !default;
 @import 'materialize';
+
+body {
+	background-color: $primary-color;
+}
+
+.search h3 {
+	color:white;
+	text-shadow: 2px 2px black;
+}
+
+.search p {
+	color:white;
+	text-shadow: 2px 2px black;
+}
+
+.card {
+	margin-left:0.5rem;
+}
+
+.btn {
+	margin-bottom:20px;
+}

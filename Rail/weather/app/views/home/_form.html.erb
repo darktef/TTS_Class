@@ -1,22 +1,33 @@
-<div class="row">
+<div class="search row">
   <h3>Look up your local forecast</h3>
   <p><em>What's the weather like in your city?</em></p>
-  <%= form_tag root_path do %>
-  <div class="col s12 m6">
-    <div class="row">
-      <div class="input-field col s12">
-        <%= text_field_tag :city, nil %><br>
-        <%= label_tag(:city, "City Name") %>
+</div>
+  
+
+<div class="row">
+  <div class="col s12 m6 l4">
+    <%= form_tag root_path do %>
+    <div class="card col s12">
+      <div class="card-content row">
+        <div class="input-field col s12">
+          <%= text_field_tag :city, nil %>
+          <%= label_tag(:city, "City Name") %>
+        </div>
+        <div class="input-field col s12">
+          <%= select_tag :state, options_for_select(@states), :prompt => "Select a State" %>
+        </div>
       </div>
-      <div class="input-field col s12">
-        <%= select_tag :state, options_for_select(@states), :prompt => "Select a State" %><br>
-      </div>
-      <div>
-        <%= button_tag(type: 'submit', class: 'btn') do %>
+
+      <div class="card-action">
+        <%= button_tag(type: 'submit', class: 'btn right') do %>
           <i class="material-icons">search</i>
         <% end %>
       </div>
+
     </div>
+    <% end %>
   </div>
-  <% end %>
-</div>
+
+<!--missing a div here for the sake of layout..but not a pretty viable solution-->
+
+

@@ -13,17 +13,38 @@ class HomeController < ApplicationController
     if params[:city] != nil
         response = HTTParty.get("http://api.wunderground.com/api/#{ENV['wunderground_api_key']}/geolookup/conditions/q/#{params[:state]}/#{params[:city]}.json") 
     else
-        response = HTTParty.get("http://api.wunderground.com/api/#{ENV['wunderground_api_key']}/geolookup/conditions/q/NC/Charlotte.json")
+        response = HTTParty.get("http://api.wunderground.com/api/#{ENV['wunderground_api_key']}/geolookup/conditions/q/TX/Dallas.json")
     end
        
     @location = response["location"]["city"]
     @temp_f = response["current_observation"]["temp_f"]
     @temp_c = response["current_observation"]["temp_c"]
     @weather_icon = response["current_observation"]["icon_url"]
-    @weather_words = response["current_observation"]["weather"]
+    @weather_words = response["current_observation"]["weather"] 
     @forecast_link = response["current_observation"]["forecast_url"]
     @feels_like = response["current_observation"]["feelslike_f"]
 
+    # only one pic will return for "Mostly Cloudy"
+    if @weather_words != "Mostly Cloudy"
+      @search_query = "weather " + @weather_words.downcase
+    else
+      @search_query = @weather_words.downcase
+    end
+    # downcase here makes a lots of difference....capitalize word actually return 
+    # different result compared to that from Postman and web browser
+
+    pix_rep = HTTParty.get("http://pixabay.com/api",:query=>{:key => ENV['pixabay_api_key'], :q => @search_query})
+    @totHits = pix_rep["totalHits"]
+    if @totHits >20
+      @id = rand(20)
+    else
+      @id = rand(pix_rep["totalHits"])
+    end
+
+    @url = pix_rep["hits"][@id]["webformatURL"]
+
+=begin
+  Original fecth pics from Unsplash
     if @weather_words == "Overcast" || @weather_words == "Cloudy"
 	      @url = "https://images.unsplash.com/photo-1445264618000-f1e069c5920f?crop=entropy&dpr=2&fit=crop&fm=jpg&h=775&ixjsv=2.0.0&ixlib=rb-0.3.5&q=50&w=1250"
   	elsif @weather_words == "Clear" || @weather_words == "Sunny" || @weather_words == "Mostly Sunny"
@@ -37,6 +58,7 @@ class HomeController < ApplicationController
   	else 
   	    @url = "https://images.unsplash.com/photo-1421081177127-339f586c9b49?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=f2d20cd9d3c70e91c0a2e2d35671a2f4"
   	end
+=end
 	
   end
 
