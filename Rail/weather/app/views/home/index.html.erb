@@ -1,0 +1,24 @@
+<style>
+    body {
+        background: url(<%= @url %>);
+        background-size: cover;
+    }
+</style>
+
+<%= render 'form' %>
+
+<div class="row">
+  <div class="weather-card col s12 m8 l4">
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title"><%=@location%> - <%= @temp_f %>°F</span>
+        <p><%= image_tag @weather_icon %></p>
+        <p>Feels like: <%= @feels_like %>°F</p>
+        <p><%= @weather_words %></p>
+      </div>
+      <div class="card-action">
+       <%= link_to "Full Forecast", @forecast_link, target: "_blank" %>
+      </div>
+    </div>
+  </div>
+</div>
