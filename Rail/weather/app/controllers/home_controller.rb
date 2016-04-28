@@ -26,9 +26,9 @@ class HomeController < ApplicationController
 
     # only one pic will return for "Mostly Cloudy"
     if @weather_words != "Mostly Cloudy"
-      @search_query = "weather " + @weather_words.downcase
+      @search_query = "weather " + @weather_words
     else
-      @search_query = @weather_words.downcase
+      @search_query = @weather_words
     end
     # downcase here makes a lots of difference....capitalize word actually return 
     # different result compared to that from Postman and web browser
