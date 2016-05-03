@@ -1,4 +1,28 @@
 Rails.application.routes.draw do
+  root 'welcome#index'
+
+  get 'artists' => "artists#index"
+  get 'artists/:artist_name' => 'artists#show'
+
+  get 'artists/:artist_name/:album_name' => 'albums#show'
+
+  get 'artists/:artist_name/:album_name/:track' => 'songs#show'
+
+  namespace :api, :defaults => {:format => :json} do
+    namespace :v1 do
+      get 'artists' => "artists#index"
+      # to show a list of artists
+      get 'artists/:artist_name' => "artists#show", as: :artist
+      # to show detailed info about an artist, including the album he/she created
+      # this kind of route might have problem with same name artists
+      get 'artists/:artist_name/:album_name' =>"albums#show", as: :album
+      # to show detailed info about an album
+      get 'artists/:artist_name/:album_name/:track' => "songs#show", as: :song
+    end
+  end
+
+  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

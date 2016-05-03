@@ -14,5 +14,12 @@
  *= require_self
  */
 @import "materialize/components/color";
-$primary-color: color("blue", "lighten-2") !default;
+$primary-color: color("purple", "lighten-2") !default;
+$back-color: color("grey","lighten-3");
 @import 'materialize';
+
+nav .nav-wrapper img {
+	max-height: 64px;
+	max-width:100%;
+	margin-left: 5px;
+}

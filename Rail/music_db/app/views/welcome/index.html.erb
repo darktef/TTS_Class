@@ -1,0 +1,13 @@
+
+<h1>Welcome</h1>
+<div class="container">
+	<div class="row">
+		<% @albums.each do |album|%>
+			<div class="album col s12 m4 l3">
+				<img src=<%=album.cover_image%>>
+				<p class="title"><%=album.title%></p>
+				<p class="artist">by <%=album.artist.name%></p>	
+			</div>
+		<%end%>
+	</div>
+</div>

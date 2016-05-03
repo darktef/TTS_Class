@@ -1,0 +1,17 @@
+<h4><%=@artist.first().name%></h4>
+<div class="container">
+	<% @artist.first().albums.each do |album|%>
+		<div class="row">
+				<div class="album col s12 m4">
+					<img src=<%=album.cover_image%>>
+					<p class="title"><%=album.title%></p>
+				</div>
+				
+				<div class="song col s12 m8">
+					<% album.songs.each do |song| %>
+					<p class="track">Track No.<%= song.track%>: "<%= song.title%>"</p><br>	
+					<%end%>
+				</div>
+		</div>
+	<%end%>
+</div>

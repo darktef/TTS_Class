@@ -1,0 +1,16 @@
+<h1><%=@albums.first().title%></h1>
+<p>by <%=@albums.first().artist.name%></p>
+
+<div class="contianer">
+	<div class="row">
+		<div class="album-image col s12 m6">
+			<img src=<%=@albums.first().cover_image%>>
+		</div>
+		<div class="songs col s12 m6">
+			<%=@albums.first().songs.each do |song|%>
+				<p>Track No.<%=song.track%>:" <%=song.title%>"</p>
+			<%end%>
+		</div>
+	</div>
+</div>
+

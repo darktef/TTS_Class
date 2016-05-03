@@ -1,0 +1,21 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1 {
+	text-align: center;
+}
+
+.album img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.album .title {
+	text-align: center;
+	font-weight:600;
+}
+
+.album .artist {
+	text-align: right;
+}

@@ -5,6 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+# saved by git revert, ref from http://stackoverflow.com/questions/4114095/revert-git-repo-to-a-previous-commit
+
 Artist.create!([
 	{name:"Joe Hisaishi"},
 	{name:"Ed Sheeran"},
