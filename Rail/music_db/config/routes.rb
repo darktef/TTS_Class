@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
+  root 'welcome#index', as: :welcome
 
-  get 'artists' => "artists#index"
-  get 'artists/:artist_name' => 'artists#show'
+  get 'artists' => "artists#index", as: :artists
+  get 'artists/:artist_name' => 'artists#show', as: :artist
 
-  get 'artists/:artist_name/:album_name' => 'albums#show'
+  get 'artists/:artist_name/:album_name' => 'albums#show', as: :album
 
-  get 'artists/:artist_name/:album_name/:track' => 'songs#show'
+  get 'songs' => "songs#lis t", as: :songs
+  get 'artists/:artist_name/:album_name/:track' => 'songs#show', as: :song
 
   namespace :api, :defaults => {:format => :json} do
     namespace :v1 do

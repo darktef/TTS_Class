@@ -1,0 +1,23 @@
+<h1>Songs</h1>
+<div class="container">
+	<table class="striped responsive-table centered">
+		<thead>
+			<tr>
+				<th data-field="id">Track No.</th>
+				<th data-field="name">Title</th>
+				<th data-field="origin">Album - Artist</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<%@songs.each do |song|%>
+				<tr>
+					<td><%=song.track%></td>
+					<td><%=song.title%></td>
+					<td><%=song.album.title%> - <%=song.album.artist.name%></td>
+				</tr>
+			<%end%>
+
+		</tbody>
+	</table>
+</div>

@@ -18,8 +18,6 @@ $primary-color: color("purple", "lighten-2") !default;
 $back-color: color("grey","lighten-3");
 @import 'materialize';
 
-nav .nav-wrapper img {
-	max-height: 64px;
-	max-width:100%;
-	margin-left: 5px;
+nav .nav-wrapper .brand-logo {
+	margin-left: 10px;
 }
