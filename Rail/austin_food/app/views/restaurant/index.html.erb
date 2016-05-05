@@ -1,0 +1,152 @@
+<h1>Food in Austin</h1>
+
+<div id="map-canvas"></div>
+
+<script>
+	$(document).ready(function(){
+		<!--initialize a map first-->
+		function initMap() {
+
+			// Map style: Pale Dawn from Snazzy Maps: https://snazzymaps.com/style/1/pale-dawn
+			// Doc for Map Style: https://developers.google.com/maps/documentation/javascript/styling#creating_a_styledmaptype
+
+			var styles = [
+				{
+					"featureType":"administrative",
+					"elementType":"all",
+					"stylers":[
+						{"visibility":"on"},
+						{"lightness":33}]
+				},
+
+				{
+					"featureType":"landscape",
+					"elementType":"all",
+					"stylers":[{"color":"#f2e5d4"}]
+				},
+
+				{
+					"featureType":"poi.park",
+					"elementType":"geometry",
+					"stylers":[{"color":"#c5dac6"}]
+				},
+
+				{
+					"featureType":"poi.park",
+					"elementType":"labels",
+					"stylers":[
+						{"visibility":"on"},
+						{"lightness":20}]
+				},
+
+				{
+					"featureType":"road",
+					"elementType":"all",
+					"stylers":[
+						{"lightness":20}]
+				},
+
+				{
+					"featureType":"road.highway",
+					"elementType":"geometry",
+					"stylers":[{"color":"#c5c6c6"}]
+				},
+
+				{
+					"featureType":"road.arterial",
+					"elementType":"geometry",
+					"stylers":[{"color":"#e4d7c6"}]
+				},
+
+				{
+					"featureType":"road.local",
+					"elementType":"geometry",
+					"stylers":[{"color":"#fbfaf7"}]
+				},
+
+				{
+					"featureType":"water",
+					"elementType":"all",
+					"stylers":[
+						{"visibility":"on"},
+						{"color":"#acbcc9"}]
+				}];
+
+			var styledMap = new google.maps.StyledMapType(styles,{name:"Pale Dawn"});
+
+			// generate the map and set the map with style pale-dawn
+			var mapOptions = {
+					center: {lat:30.3269504,lng:-97.7407083},
+					zoom: 12,
+					scrollwheel: false,
+				}
+
+			var map = new google.maps.Map(document.getElementById('map-canvas'),
+				mapOptions
+				);
+
+			map.mapTypes.set('pale-dawn', styledMap);
+			map.setMapTypeId('pale-dawn');
+
+			// loop through restaurants to get info and store in an array
+			var items =[];
+			<% @restaurants.each do |r|%>
+				items.push({
+					name: '<%=r.name%>',
+					address: '<%=r.address%>',
+					icon: '<%=asset_path r.icon%>',
+					photo: '<%=r.photo%>',
+					website: '<%=r.website%>',
+					comment: '<%=r.comment%>',
+					latitude: '<%=r.latitude%>',
+					longitude: '<%=r.longitude%>'
+				});
+			<%end%>
+
+			items.forEach(function(item){
+				var marker = new google.maps.LatLng(item.latitude,item.longitude);
+
+				// size the icon, ref: https://developers.google.com/maps/documentation/javascript/markers#complex_icons
+
+				var image = {
+					url: item.icon,
+					size: new google.maps.Size(71, 71),
+					origin: new google.maps.Point(0, 0),
+					anchor: new google.maps.Point(17, 34),
+					scaledSize: new google.maps.Size(25, 25)
+				};
+
+				var marker = new google.maps.Marker ({
+					position: marker,
+					map: map,
+					title: item.name,
+					icon: image,
+					animation: google.maps.Animation.DROP,
+					draggable: true
+				});
+
+				var contentString = '<h2>' + item.name + '</h2>' + '<p>' + item.address + '</p>' + '<a href="https://' + item.website + '">' + item.website + '</a>' + '<p>' + item.comment + '</p>' + '<img class="photo" src="' + item.photo + '">';
+
+				var infowindow = new google.maps.InfoWindow({
+					content: contentString
+				});
+
+				// add event listener for infowindow, and implent code to allow only one info window opens at a time
+				// ref from http://stackoverflow.com/questions/15111555/google-maps-api-v3-one-infowindow-open-at-a-time
+				google.maps.event.addDomListener(marker, "click", function(){
+					if($('.gm-style-iw').length) {
+         				$('.gm-style-iw').parent().remove();
+    				}
+					infowindow.open(map,marker);
+				});
+			});
+
+
+			
+		}
+
+		// load the map
+		google.maps.event.addDomListener(window, 'load', initMap);
+
+	});
+</script>
