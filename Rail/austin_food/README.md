@@ -1,4 +1,4 @@
-# Austin Food Map Api
+# Austin Food Map
 
 ## Purpose
 

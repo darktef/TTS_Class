@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get 'artists/:artist_name/:album_name' => 'albums#show', as: :album
 
-  get 'songs' => "songs#lis t", as: :songs
+  get 'songs' => "songs#list", as: :songs
   get 'artists/:artist_name/:album_name/:track' => 'songs#show', as: :song
 
   namespace :api, :defaults => {:format => :json} do
