@@ -8,6 +8,7 @@ To practise using Google Map API, several features implemented:
 2. Use gem geocode to acquire latitude and longitude info according to address info;
 3. Plot multiple draggable customized Markers with database info;
 4. Assign customized InfoWindow for each marker, and only allow one info window opens at a time.
+5. Created a standalone html version of Austin Food Map, which could be found in html ver/.
 
 ## Motivation
 
